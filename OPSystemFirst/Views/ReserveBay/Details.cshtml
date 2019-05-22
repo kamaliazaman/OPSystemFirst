@@ -1,0 +1,63 @@
+﻿@model OPSystemFirst.Models.ReserveBayAdaptee
+
+@{
+    ViewBag.Title = "ViewReserveReceipt";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReserveBayAdaptee</h4>
+    <hr />
+    <div class="container" id="invoice-POS" style="background-color:white; width:auto; height:auto; opacity:0.7">
+        @if (Model != null)
+
+
+        {<div><h3 align="center"><strong>MBIP Parking System</strong></h3></div>
+
+        <h1 align="center" style="border :2px solid black;">Parking Details</h1>
+            <h1 align="center"><strong>@Html.DisplayFor(model => model.name)</strong></h1>
+            <table align="center">
+
+                <tr>
+                    <td>
+                        <h5>Start Date :</h5>
+                    </td>
+                    <td>
+                        <h3>@Html.DisplayFor(model => model.startDate)</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>End Date :</h5>
+                    </td>
+                    <td>
+                        <h3>@Html.DisplayFor(model => model.endDate)</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Lot Address :</h5>
+                    </td>
+                    <td>
+                        <h3>@Html.DisplayFor(model => model.lotAddress)</h3>
+                    </td>
+                </tr>
+            </table>
+
+        }
+
+        else
+        {
+            <div class="container">
+                <div><h2> Receipt Deatils not found</h2></div>
+            </div>
+
+        }
+        <a href="javascript:window.print()"> Print Receipt</a>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReserveBayAdapteeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
