@@ -1,0 +1,75 @@
+﻿@model IEnumerable<OPSystemFirst.Models.ReserveBayAdaptee>
+
+@{
+    ViewBag.Title = "Reserve Receipt";
+}
+
+<h2>Reserve Bay Detail</h2>
+
+@{ var counter = 1; }
+@if (counter == 1)
+{
+foreach (var item in Model)
+{
+    <div class="container" id="invoice-POS" style="background-color:white; width:auto; height:auto; opacity:0.7">
+        @if (Model != null)
+
+
+        {<div><h3 align="center"><strong>MBIP Parking System</strong></h3></div>
+
+        <h1 align="center" style="border :2px solid black;">Parking Details</h1>
+        <h1 align="center"><strong>@Html.DisplayFor(ModelItem => item.name)</strong></h1>
+        <table align="center">
+
+            <tr>
+                <td>
+                    <h5>Start Date :</h5>
+                </td>
+                <td>
+                    <h3>@Html.DisplayFor(ModelItem => item.startDate)</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>End Date :</h5>
+                </td>
+                <td>
+                    <h3>@Html.DisplayFor(ModelItem => item.endDate)</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>Lot Address :</h5>
+                </td>
+                <td>
+                    <h3>@Html.DisplayFor(ModelItem => item.lotAddress)</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>Price:</h5>
+                </td>
+                <td>
+                    <h3>RM @Html.DisplayFor(ModelItem => item.payment)</h3>
+                </td>
+            </tr>
+        </table>
+
+        }
+
+        else
+        {
+            <div class="container">
+                <div><h2> Receipt Deatils not found</h2></div>
+            </div>
+
+        }
+        <a href="javascript:window.print()"> Print Receipt</a>
+        
+    </div>
+}
+}
+else
+{
+    <p>No data found</p>
+}

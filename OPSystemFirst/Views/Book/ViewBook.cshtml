@@ -1,0 +1,72 @@
+﻿@model IEnumerable<OPSystemFirst.Models.Booking>
+
+@{
+    ViewBag.Title = "Parking Receipt";
+}
+
+<h2>Booking Detail</h2>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="container" id="invoice-POS" style="background-color:white; width:auto; height:auto; opacity:0.7">
+
+
+        @if (Model != null)
+
+
+        { <div><h3 align="center"><strong>MBIP Parking System</strong></h3></div>
+
+        <h1 align="center" style="border :2px solid black;">Parking Details</h1>
+        <h1 align="center"><strong>@Html.DisplayFor(modelItem => item.name)</strong></h1>
+        <table align="center">
+
+            <tr>
+                <td>
+                    <h5>Date :</h5>
+                </td>
+                <td>
+                    <h3>@Html.DisplayFor(modelItem => item.date)</h3>
+                </td>
+            </tr>
+          
+            <tr>
+                <td>
+                    <h5>Duration :</h5>
+                </td>
+                <td>
+                    <h3>@Html.DisplayFor(modelItem => item.time) hours </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>Parking No :</h5>
+                </td>
+                <td>
+                    <h3>@Html.DisplayFor(modelItem => item.ParkingNo)</h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h5>Parking Payment :</h5>
+                </td>
+                <td>
+                    <h3>RM @Html.DisplayFor(modelItem => item.payment)</h3>
+                </td>
+            </tr>
+        </table>
+
+        }
+
+        else
+        {
+            <div class="container">
+                <div><h2> Receipt Deatils not found</h2></div>
+            </div>
+
+        }
+        <a href="javascript:window.print()"> Print Receipt</a>
+    </div>
+}
